@@ -1,5 +1,5 @@
 # express-node-postgres-redis-boilerplate
-Boilerplate with Express, Postgres and Redis
+> Boilerplate for Node.js with Express, Postgres and Redis
 
 # Steps to run(for dev)
 1. Resolve dependencies `npm install` .
