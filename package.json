@@ -10,7 +10,7 @@
     "start": "node src/index.js",
     "dev": "nodemon src/index.js",
     "test": "mocha test/**/*.js --reporter spec --exit",
-    "coverage": "nyc --reporter=html mocha test/**/*.js --timeout=3000"
+    "coverage": "nyc --reporter=html mocha test/**/*.js --timeout=3000 --exit"
   },
   "repository": {
     "type": "git",
