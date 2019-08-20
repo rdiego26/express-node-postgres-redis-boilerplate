@@ -4,18 +4,18 @@ services:
     image: redis
     container_name: cache
     expose:
-    - 6379
+      - 6379
   postgres:
     image: postgres:10.4
     container_name: postgres
     ports:
-    - "35432:5432"
+      - "35432:5432"
     environment:
       POSTGRES_USER: postgres
       POSTGRES_PASSWORD: postgres
       POSTGRES_DB: db
     volumes:
-    - ./DDL/create-config-item-table.sql:/docker-entrypoint-initdb.d/init.sql
+      - ./DDL/create-config-item-table.sql:/docker-entrypoint-initdb.d/init.sql
     healthcheck:
       test: ["CMD-SHELL", "pg_isready -U postgres"]
       interval: 10s
@@ -24,16 +24,18 @@ services:
   app:
     build: .
     depends_on:
-    - postgres
-    - redis
+      - postgres
+      - redis
+    links:
+      - postgres
+      - redis
     environment:
-      DATABASE_URL: postgres://user:pass@postgres:5432/db
       REDIS_URL: redis://cache
       NODE_ENV: development
       PORT: 3000
     ports:
-    - "3000:3000"
+      - "3000:3000"
     command: npm run dev
     volumes:
-    - .:/app/
-    - /app/node_modules
+      - .:/app/
+      - /app/node_modules
