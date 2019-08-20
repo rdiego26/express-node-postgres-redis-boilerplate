@@ -1,0 +1,4 @@
+CREATE TABLE IF NOT EXISTS config_item(
+    "key" VARCHAR PRIMARY KEY,
+    value VARCHAR NOT NULL
+);
