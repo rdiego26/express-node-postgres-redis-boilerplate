@@ -12,5 +12,13 @@ const poolInstance = new Sequelize(constants.db.database, constants.db.username,
 	}
 });
 
+poolInstance.sync().then(function(){
+	console.log('DB connection sucessful.');
+}, function(err){
+	// catch error here
+	console.log(err);
+
+});
+
 module.exports = poolInstance;
 
