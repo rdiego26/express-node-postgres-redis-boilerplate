@@ -9,7 +9,7 @@
   "scripts": {
     "start": "node src/index.js",
     "dev": "nodemon src/index.js",
-    "test": "mocha test/**/*.js --reporter spec --exit",
+    "test": "yarn install && mocha test/**/*.js --reporter spec --exit",
     "coverage": "nyc --reporter=html mocha test/**/*.js --timeout=3000 --exit"
   },
   "repository": {
@@ -43,6 +43,7 @@
   },
   "devDependencies": {
     "chai": "^4.2.0",
+    "faker": "^4.1.0",
     "mocha": "^6.2.0",
     "nodemon": "^1.19.1",
     "supertest": "^4.0.2"
